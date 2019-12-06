@@ -7,9 +7,10 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    SystemChrome.setSystemUIOverlayStyle(
-        SystemUiOverlayStyle(statusBarColor: Colors.transparent,
-          statusBarBrightness: Brightness.dark,));
+    SystemChrome.setSystemUIOverlayStyle(SystemUiOverlayStyle(
+      statusBarColor: Colors.transparent,
+      statusBarBrightness: Brightness.dark,
+    ));
 
     return MaterialApp(
       title: 'Flutter Demo',
@@ -91,25 +92,25 @@ class _MyHomePageState extends State<MyHomePage> {
           padding: EdgeInsets.zero,
           children: <Widget>[
             DrawerHeader(
-
-                decoration: BoxDecoration(
-
-              // Box decoration takes a gradient
-              gradient: LinearGradient(
-                // Where the linear gradient begins and ends
-                begin: Alignment.topRight,
-                end: Alignment.bottomLeft,
-                // Add one stop for each color. Stops should increase from 0 to 1
-                stops: [0.1, 0.5, 0.7, 1],
-                colors: [
-                  // Colors are easy thanks to Flutter's Colors class.
-                  Colors.indigo[800],
-                  Colors.indigo[700],
-                  Colors.indigo[600],
-                  Colors.indigo[400],
-                ],
+              decoration: BoxDecoration(
+                // Box decoration takes a gradient
+                gradient: LinearGradient(
+                  // Where the linear gradient begins and ends
+                  begin: Alignment.topRight,
+                  end: Alignment.bottomLeft,
+                  // Add one stop for each color. Stops should increase from 0 to 1
+                  stops: [0.1, 0.5, 0.7, 1],
+                  colors: [
+                    // Colors are easy thanks to Flutter's Colors class.
+                    Colors.indigo[800],
+                    Colors.indigo[700],
+                    Colors.indigo[600],
+                    Colors.indigo[400],
+                  ],
+                ),
               ),
-            ), child: null,)
+              child: null,
+            )
           ],
         ),
       ),
