@@ -88,32 +88,139 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
 
       drawer: Drawer(
-        child: ListView(
-          padding: EdgeInsets.zero,
+          child: Container(
+        decoration: BoxDecoration(
+          // Box decoration takes a gradient
+          gradient: LinearGradient(
+            // Where the linear gradient begins and ends
+            begin: Alignment.topLeft,
+            end: Alignment.topRight,
+
+            // Add one stop for each color. Stops should increase from 0 to 1
+            stops: [0.1, 1],
+            colors: [
+              // Colors are easy thanks to Flutter's Colors class.
+              /*Colors.indigo[400],
+                Colors.indigo[800],*/
+              Color(0xff00BFA5),
+              Color(0xff0DD9A3)
+            ],
+          ),
+        ),
+
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.start,
+          // padding: EdgeInsets.zero,
           children: <Widget>[
-            DrawerHeader(
+            Padding(
+              padding: EdgeInsets.only(top: 24),
+            ),
+            Container(
+              padding: EdgeInsets.fromLTRB(16,0, 0, 0),
+              alignment: Alignment.topLeft,
+              child: Image(
+                image: AssetImage("images/ic_cross.png"),
+                height: 20,
+                width: 20,
+              ),
+            ),
+            Container(
+              width: 100,
+              height: 100,
+              alignment: Alignment.center,
               decoration: BoxDecoration(
-                // Box decoration takes a gradient
-                gradient: LinearGradient(
-                  // Where the linear gradient begins and ends
-                  begin: Alignment.topRight,
-                  end: Alignment.bottomLeft,
-                  // Add one stop for each color. Stops should increase from 0 to 1
-                  stops: [0.1, 0.5, 0.7, 1],
-                  colors: [
-                    // Colors are easy thanks to Flutter's Colors class.
-                    Colors.indigo[800],
-                    Colors.indigo[700],
-                    Colors.indigo[600],
-                    Colors.indigo[400],
+                  shape: BoxShape.circle,
+                  image: DecorationImage(
+                      image: AssetImage("images/default_person.png"),
+                      fit: BoxFit.fill)),
+            ),
+            Padding(
+              padding: EdgeInsets.only(top: 16),
+            ),
+            Text(
+              "Lily Gelibi",
+              style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 14,
+                  fontWeight: FontWeight.bold),
+            ),
+            Text(
+              "lily@domain.com",
+              style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 16,
+                  fontWeight: FontWeight.bold),
+            ),
+
+
+            Padding(
+              padding: const EdgeInsets.only(top : 16.0),
+              child: Container(
+                height: 1,
+                color: Color(0xff0DD9A3),
+
+              ),
+            ),
+             ListTile(
+                title: new Text("HOME", style: TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold), textAlign: TextAlign.center, ),
+                onTap: () {
+                  Navigator.pop(context);
+                }),
+            ListTile(
+                title: new Text("OFFER", style: TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold), textAlign: TextAlign.center,),
+                onTap: () {
+                  Navigator.pop(context);
+                }),
+            ListTile(
+                title: new Text("MY ORDER", style: TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold), textAlign: TextAlign.center,),
+                onTap: () {
+                  Navigator.pop(context);
+                }),
+            ListTile(
+                title: new Text("CATEGORIES", style: TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold), textAlign: TextAlign.center,),
+                onTap: () {
+                  Navigator.pop(context);
+                }),
+            ListTile(
+                title: new Text("BLOG", style: TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold), textAlign: TextAlign.center,),
+                onTap: () {
+                  Navigator.pop(context);
+                }),
+            ListTile(
+                title: new Text("MY ADDRESS", style: TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold), textAlign: TextAlign.center,),
+                onTap: () {
+                  Navigator.pop(context);
+                }),
+            ListTile(
+                title: new Text("SETTINGS", style: TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold), textAlign: TextAlign.center,),
+                onTap: () {
+                  Navigator.pop(context);
+                }),
+            ListTile(
+                title: new Text("LOGOUT", style: TextStyle(color: Colors.white, fontSize: 16, fontWeight: FontWeight.bold), textAlign: TextAlign.center,),
+                onTap: () {
+                  Navigator.pop(context);
+                }),
+
+            /*   DrawerHeader(
+                child: Column(
+                  children: <Widget>[
+                    Image(
+                      image: AssetImage("images/ic_cross.png"),
+                      height: 20,
+                      width: 20,
+                    ),
+                    CircleAvatar(
+                      radius: 50,
+                      backgroundImage:AssetImage('images/default_person.png') ,
+                    ),
                   ],
                 ),
-              ),
-              child: null,
-            )
+
+              )*/
           ],
         ),
-      ),
+      )),
       floatingActionButton: FloatingActionButton(
         onPressed: _incrementCounter,
         tooltip: 'Increment',
