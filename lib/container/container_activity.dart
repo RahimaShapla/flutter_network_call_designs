@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:ebuy_flutter/navigation_items/CategoryActivity.dart';
 import 'package:ebuy_flutter/navigation_items/HomeFragment.dart';
 import 'package:ebuy_flutter/navigation_items/SettingFragment.dart';
@@ -32,41 +34,56 @@ class ContainerActivity extends StatefulWidget {
 class ContainerActivityState extends State<ContainerActivity> {
   int _selectedDrawerIndex = 0;
   int _bottomFragmentCount = 0;
+  bool _isBottomBar = false;
 
   _getDrawerItemWidget(int position) {
-    switch (position) {
-      case 0:
-        return HomeFragment();
-      case 1:
-        return CategoryActivity();
-      case 2:
-        return HomeFragment();
-      case 3:
-        return HomeFragment();
-      case 4:
-        return HomeFragment();
-      case 5:
-        return HomeFragment();
-      case 6:
-        return SettingFragment();
-      case 7:
-        return HomeFragment();
-      case 8:
-        return CategoryActivity();
+    if (!_isBottomBar) {
+      switch (position) {
+        case 0:
+          return HomeFragment();
+        case 1:
+          return CategoryActivity();
+        case 2:
+          return HomeFragment();
+        case 3:
+          return HomeFragment();
+        case 4:
+          return HomeFragment();
+        case 5:
+          return HomeFragment();
+        case 6:
+          return SettingFragment();
+        case 7:
+          return HomeFragment();
+        case 8:
+          return CategoryActivity();
 
-      default:
-        return HomeFragment();
+        default:
+          return HomeFragment();
+      }
+    } else {
+      switch (position) {
+        case 0:
+          return HomeFragment();
+        case 1:
+          return CategoryActivity();
+        case 2:
+          return HomeFragment();
+        default:
+          return HomeFragment();
+      }
     }
   }
 
   _onSelectItem(int index) {
     setState(() {
+      _isBottomBar = false;
       _selectedDrawerIndex = index;
     });
     Navigator.of(context).pop();
   }
 
-  _onBottomBarTap(int index){
+  _onBottomBarTap(int index) {
     setState(() {
       _bottomFragmentCount = index;
     });
@@ -83,10 +100,7 @@ class ContainerActivityState extends State<ContainerActivity> {
           navItem.title,
           textAlign: TextAlign.center,
           style: TextStyle(
-            color: Colors.white,
-            fontWeight: FontWeight.bold,
-            fontSize: 16
-          ),
+              color: Colors.white, fontWeight: FontWeight.bold, fontSize: 16),
         ),
         selected: i == _selectedDrawerIndex,
         onTap: () {
@@ -192,33 +206,37 @@ class ContainerActivityState extends State<ContainerActivity> {
                     children: drawerOption,
                     mainAxisAlignment: MainAxisAlignment.center,
                   )
-
-
                 ],
               ),
             )
           ],
         ),
       ),
-
       bottomNavigationBar: BottomNavigationBar(
-
+        currentIndex: _selectedDrawerIndex,
+        onTap: (int index) {
+          setState(() {
+            _isBottomBar = true;
+            _selectedDrawerIndex = index;
+          });
+        },
         showSelectedLabels: false,
         showUnselectedLabels: false,
-        currentIndex: 0, // this will be set when a new tab is tapped
+        // this will be set when a new tab is tapped
         items: [
           BottomNavigationBarItem(
-            icon:  Icon(Icons.home, size: 30,),
-            title:  Text(''),
+            icon: Icon(
+              Icons.home,
+              size: 30,
+            ),
+            title: Text(''),
           ),
           BottomNavigationBarItem(
-            icon:  Icon(Icons.mail, size: 30),
-            title:  Text(''),
+            icon: Icon(Icons.mail, size: 30),
+            title: Text(''),
           ),
           BottomNavigationBarItem(
-              icon: Icon(Icons.person, size: 30),
-              title: Text('')
-          )
+              icon: Icon(Icons.person, size: 30), title: Text(''))
         ],
       ),
       body: _getDrawerItemWidget(_selectedDrawerIndex),
