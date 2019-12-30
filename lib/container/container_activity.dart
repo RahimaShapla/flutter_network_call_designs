@@ -140,76 +140,78 @@ class ContainerActivityState extends State<ContainerActivity> {
             ),
           ]),
       drawer: Drawer(
-        child: ListView(
-          padding: EdgeInsets.zero,
-          children: <Widget>[
-            Container(
-              decoration: BoxDecoration(
-                gradient: LinearGradient(
-                  begin: Alignment.topLeft,
-                  end: Alignment.topRight,
-                  stops: [0.1, 1],
-                  colors: [Color(0xff00BFA5), Color(0xff0DD9A3)],
+        child: Container(
+          decoration: BoxDecoration(
+            gradient: LinearGradient(
+              begin: Alignment.topLeft,
+              end: Alignment.topRight,
+              stops: [0.1, 1],
+              colors: [Color(0xff00BFA5), Color(0xff0DD9A3)],
+            ),
+          ),
+          child: ListView(
+            padding: EdgeInsets.zero,
+            children: <Widget>[
+              Container(
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.start,
+                  // padding: EdgeInsets.zero,
+                  children: <Widget>[
+                    Padding(
+                      padding: EdgeInsets.only(top: 24),
+                    ),
+                    Container(
+                      padding: EdgeInsets.fromLTRB(16, 10, 0, 0),
+                      alignment: Alignment.topLeft,
+                      child: Image(
+                        image: AssetImage("images/ic_cross.png"),
+                        height: 20,
+                        width: 20,
+                      ),
+                    ),
+                    Container(
+                      width: 100,
+                      height: 100,
+                      alignment: Alignment.center,
+                      decoration: BoxDecoration(
+                          shape: BoxShape.circle,
+                          image: DecorationImage(
+                              image: AssetImage("images/default_person.png"),
+                              fit: BoxFit.fill)),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(top: 16),
+                    ),
+                    Text(
+                      "Lily Gelibi",
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 14,
+                          fontWeight: FontWeight.bold),
+                    ),
+                    Text(
+                      "lily@domain.com",
+                      style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 16,
+                          fontWeight: FontWeight.bold),
+                    ),
+                    Padding(
+                      padding: const EdgeInsets.only(top: 16.0),
+                      child: Container(
+                        height: 1,
+                        color: Color(0xff0DD9A3),
+                      ),
+                    ),
+                    Column(
+                      children: drawerOption,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                    )
+                  ],
                 ),
-              ),
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.start,
-                // padding: EdgeInsets.zero,
-                children: <Widget>[
-                  Padding(
-                    padding: EdgeInsets.only(top: 24),
-                  ),
-                  Container(
-                    padding: EdgeInsets.fromLTRB(16, 0, 0, 0),
-                    alignment: Alignment.topLeft,
-                    child: Image(
-                      image: AssetImage("images/ic_cross.png"),
-                      height: 20,
-                      width: 20,
-                    ),
-                  ),
-                  Container(
-                    width: 100,
-                    height: 100,
-                    alignment: Alignment.center,
-                    decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        image: DecorationImage(
-                            image: AssetImage("images/default_person.png"),
-                            fit: BoxFit.fill)),
-                  ),
-                  Padding(
-                    padding: EdgeInsets.only(top: 16),
-                  ),
-                  Text(
-                    "Lily Gelibi",
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 14,
-                        fontWeight: FontWeight.bold),
-                  ),
-                  Text(
-                    "lily@domain.com",
-                    style: TextStyle(
-                        color: Colors.white,
-                        fontSize: 16,
-                        fontWeight: FontWeight.bold),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.only(top: 16.0),
-                    child: Container(
-                      height: 1,
-                      color: Color(0xff0DD9A3),
-                    ),
-                  ),
-                  Column(
-                    children: drawerOption,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                  )
-                ],
-              ),
-            )
-          ],
+              )
+            ],
+          ),
         ),
       ),
       bottomNavigationBar: BottomNavigationBar(
