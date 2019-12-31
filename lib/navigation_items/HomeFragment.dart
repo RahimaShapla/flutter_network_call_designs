@@ -59,7 +59,16 @@ class ServerDataState extends State<HomeFragment>{
 }
 
 
+/*class MultiList extends StatelessWidget{
+  @override
+  Widget build(BuildContext context) {
+    // TODO: implement build
+    return Scaffold(
+        HomeFragmentState,
+    );
+  }
 
+}*/
 
 class HomeFragmentState extends StatelessWidget {
   final List<Movie> movieList;
@@ -68,7 +77,6 @@ class HomeFragmentState extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build
     return Scaffold(
       backgroundColor: Colors.white,
       body: Container(
@@ -229,7 +237,11 @@ const List<Product> productList = const <Product>[
   const Product(
       title: 'Men Dress',
       imageUrl:
-          "https://media.gettyimages.com/photos/woman-dress-picture-id184354439?s=612x612"),
+      "https://media.gettyimages.com/photos/woman-dress-picture-id184354439?s=612x612"),
+  const Product(
+      title: 'Men Dress',
+      imageUrl:
+      "https://media.gettyimages.com/photos/woman-dress-picture-id184354439?s=612x612"),
 ];
 
 
