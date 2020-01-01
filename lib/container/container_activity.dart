@@ -3,6 +3,7 @@ import 'dart:math';
 import 'package:ebuy_flutter/navigation_items/CategoryActivity.dart';
 import 'package:ebuy_flutter/navigation_items/HomeFragment.dart';
 import 'package:ebuy_flutter/navigation_items/SettingFragment.dart';
+import 'package:ebuy_flutter/welcome_page/welcome_pages.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
@@ -44,11 +45,15 @@ class ContainerActivityState extends State<ContainerActivity> {
         case 1:
           return CategoryActivity();
         case 2:
-          return HomeFragment();
+          Navigator.push(
+            context,
+            MaterialPageRoute(builder: (context) => WelcomeActivity()),
+          );
+          return null;
         case 3:
-          return HomeFragment();
+          return WelcomeActivity();
         case 4:
-          return HomeFragment();
+          return WelcomeActivity();
         case 5:
           return HomeFragment();
         case 6:
@@ -74,6 +79,7 @@ class ContainerActivityState extends State<ContainerActivity> {
       }
     }
   }
+
 
   _onSelectItem(int index) {
     setState(() {

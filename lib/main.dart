@@ -1,4 +1,5 @@
 import 'package:ebuy_flutter/container/container_activity.dart';
+import 'package:ebuy_flutter/welcome_page/welcome_pages.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
@@ -16,7 +17,7 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(),
-      home: ContainerActivity(),
+      home: WelcomeActivity(),
     );
   }
 }
