@@ -1,3 +1,4 @@
+import 'package:ebuy_flutter/authentication/login/log_in.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -16,6 +17,8 @@ class WelcomeActivity extends StatefulWidget {
 class WelcomeState extends State<WelcomeActivity> {
   @override
   Widget build(BuildContext context) {
+    double width = MediaQuery.of(context).size.width;
+    double height = MediaQuery.of(context).size.height;
     return Scaffold(
       body: Container(
         child: Container(
@@ -23,8 +26,8 @@ class WelcomeState extends State<WelcomeActivity> {
             // Box decoration takes a gradient
             gradient: LinearGradient(
               // Where the linear gradient begins and ends
-              begin:Alignment.bottomLeft,
-              end:  Alignment.topRight,
+              begin: Alignment.bottomLeft,
+              end: Alignment.topRight,
 
               // Add one stop for each color. Stops should increase from 0 to 1
               stops: [0.1, 1],
@@ -51,28 +54,36 @@ class WelcomeState extends State<WelcomeActivity> {
                       image: AssetImage("images/app_logo.png"),
                     ),
                   ),
-                  Container(
-                    margin: EdgeInsets.only(top: 50),
-                    padding: EdgeInsets.fromLTRB(60, 15, 60, 15),
-                    decoration: BoxDecoration(
-                      shape: BoxShape.rectangle,
-                      border: Border.all(
-                          color: Colors.white,
-                          style: BorderStyle.solid,
-                          width: 2),
-                      borderRadius: BorderRadius.only(
-                        topLeft: Radius.circular(25.0),
-                        topRight: Radius.circular(25.0),
-                        bottomLeft: Radius.circular(25.0),
-                        bottomRight: Radius.circular(25.0),
+                  InkWell(
+                    onTap: () {
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (BuildContext context) => LogIn()));
+                    },
+                    child: Container(
+                      margin: EdgeInsets.only(top: 50),
+                      padding: EdgeInsets.fromLTRB(60, 15, 60, 15),
+                      decoration: BoxDecoration(
+                        color: Colors.transparent,
+                        shape: BoxShape.rectangle,
+                        border: Border.all(
+                            color: Colors.white,
+                            style: BorderStyle.solid,
+                            width: 2),
+                      //  boxShadow: [BoxShadow(color: Colors.grey[500], blurRadius: 4)],
+                        borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(25.0),
+                          topRight: Radius.circular(25.0),
+                          bottomLeft: Radius.circular(25.0),
+                          bottomRight: Radius.circular(25.0),
+                        ),
                       ),
-                    ),
-                    child: Text(
-                      "SIGN IN",
-                      style: TextStyle(
-                          fontSize: 18,
-                          fontFamily: "roboto_bold",
-                          color: Colors.white),
+                      child: Text(
+                        "SIGN IN",
+                        style: TextStyle(
+                            fontSize: 18,
+                            fontFamily: "Roboto",
+                            color: Colors.white),
+                      ),
                     ),
                   ),
                   Container(
@@ -81,6 +92,7 @@ class WelcomeState extends State<WelcomeActivity> {
                     decoration: BoxDecoration(
                       color: Colors.white,
                       shape: BoxShape.rectangle,
+                      boxShadow: [BoxShadow(color: Colors.grey[500], blurRadius: 4)],
                       borderRadius: BorderRadius.only(
                         topLeft: Radius.circular(25.0),
                         topRight: Radius.circular(25.0),
@@ -103,6 +115,7 @@ class WelcomeState extends State<WelcomeActivity> {
                     children: <Widget>[
                       Expanded(
                         child: Container(
+                          height: height - 270,
                           child: Image(
                             image: AssetImage("images/footer_shape.png"),
                           ),

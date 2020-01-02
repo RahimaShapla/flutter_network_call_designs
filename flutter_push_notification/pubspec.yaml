@@ -27,6 +27,7 @@ dependencies:
   backendless_sdk: ^0.3.0
   flutter_local_notifications: 0.9.1
   fluttertoast: ^3.1.0
+  dotted_border: ^1.0.4
 
 dev_dependencies:
   flutter_test:
